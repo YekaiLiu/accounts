@@ -1,21 +1,49 @@
-<h2>显示谷歌邮箱yl4241@columbia.edu账户的密码（show the password for the Gmail account with the email address as yl4241@columbia.edu, which is associated with an evernote account):></h2>
 
+
+<h2>显示谷歌邮箱为yl4241@columbia.edu的账户(UNI:yl4241)的密码,该谷歌账户绑定了一个evernote账号（show the password for the Gmail account with the email address as yl4241@columbia.edu [UNI:yl4241], which is associated with an evernote account):></h2>
+
+<form>
+    <label for="secretKey1">secretKey1</label><br>
+    <input id="secretKey1" name="secretKey" type="string" placeholder="secretKey1 received from your email(你邮箱收到的secretKey1)" style="width:1000px">
+</form>
 <button ondblclick="yl4241()">
     show password
 </button>
+<input id="password1" name="password" type="string" placeholder="password">
 
+<br>
+<br>
+<h2>显示谷歌邮箱为jasonstoffel123@gmail.com的账户的密码，该谷歌账户亦绑定了一个evernote账号（show the password for the Gmail account with the email address as jasonstoffel123@gmail.com, which is also associated with an evernote account):></h2>
+<form>
+    <label for="secretKey2">secretKey2</label><br>
+    <input id="secretKey2" name="secretKey" type="string" placeholder="secretKey2 received from your email(你邮箱收到的secretKey2)" style="width:1000px">
+</form>
 
-<h2>显示谷歌邮箱jasonstoffel123@gmail.com账户的密码（show the password for the Gmail account with the email address as jasonstoffel123@gmail.com, which is also associated with an evernote account):></h2>
 <button ondblclick="jason()">
     show password
 </button>
+<input id="password2" name="password" type="string" placeholder="password">
 
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
 <script>
+   
+    
+ 
     function yl4241() {
-      console.log('test')
+        const secretKey1 = document.getElementById("secretKey1").value
+        var bytes  = CryptoJS.AES.decrypt('U2FsdGVkX1/PCjZqFvO25+GCAg+QiiqHljZ0lVy0v4w=', secretKey1);
+var originalText = bytes.toString(CryptoJS.enc.Utf8);
+document.getElementById("password1").value = originalText;
     };
     function jason() {
-        console.log('test')
+        const secretKey2 = document.getElementById("secretKey2").value
+        var bytes  = CryptoJS.AES.decrypt('U2FsdGVkX18JLJc+nyKcmQP3HYdXWW7dhPTNMJ/wH+k=', secretKey2);
+var originalText = bytes.toString(CryptoJS.enc.Utf8);
+document.getElementById("password2").value = originalText;
       }
 </script>
 
+<br>
+<br>
+Call (858) 436-6169 for secretKey1 and secretKey2.
